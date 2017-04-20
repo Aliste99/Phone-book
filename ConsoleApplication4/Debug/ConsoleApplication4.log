@@ -1,9 +1,9 @@
-﻿Сборка начата 20.04.2017 20:26:21.
+﻿Сборка начата 20.04.2017 20:36:42.
      1>Проект "C:\Users\ThirtySeven\Documents\Visual Studio 2015\Projects\ConsoleApplication4\ConsoleApplication4\ConsoleApplication4.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\ConsoleApplication4.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication4.cpp
          ConsoleApplication4.cpp
-     1>c:\users\thirtyseven\documents\visual studio 2015\projects\consoleapplication4\consoleapplication4\consoleapplication4.cpp(203): warning C4715: getResult: значение возвращается не при всех путях выполнения
+     1>c:\users\thirtyseven\documents\visual studio 2015\projects\consoleapplication4\consoleapplication4\consoleapplication4.cpp(204): warning C4715: getResult: значение возвращается не при всех путях выполнения
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ThirtySeven\Documents\Visual Studio 2015\Projects\ConsoleApplication4\Debug\ConsoleApplication4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\ThirtySeven\Documents\Visual Studio 2015\Projects\ConsoleApplication4\Debug\ConsoleApplication4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ThirtySeven\Documents\Visual Studio 2015\Projects\ConsoleApplication4\Debug\ConsoleApplication4.lib" /MACHINE:X86 Debug\ConsoleApplication4.obj
          Debug\stdafx.obj
@@ -12,4 +12,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:06.02
+Затраченное время: 00:00:05.24

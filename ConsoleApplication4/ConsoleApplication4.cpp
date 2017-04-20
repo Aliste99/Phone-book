@@ -22,14 +22,14 @@ public:
 	}
 	void addContact() {			
 		ofstr.open("contactlist.txt", ios_base::app);
-		cout << "Введите имя контакта : ";
+		cout << "          Введите имя контакта : ";
 		cin >> newContact;
 		ofstr << newContact << " ";
-		cout << "Введите номер : ";
+		cout << "          Введите номер : ";
 		cin >> newNumber;
 		ofstr << newNumber << "\n";
 		ofstr.close();
-		cout << "Контакт добавлен " << endl;
+		cout << "          Контакт добавлен ^o^ " << endl;
 	}
 
 	void deleteContact() {
@@ -42,10 +42,10 @@ public:
 		int i = 0;
 		while (getline(ifstr, result)) {
 			list[i] = result;
-			cout << i + 1 << ") " << result << endl;
+			cout << "          " << i + 1 << ") " << result << endl;
 			i++;
 		}
-		cout << "Выберите номер контакта, который вы хотите удалить : " << endl;
+		cout << "          Выберите номер контакта, который вы хотите удалить : " << endl;
 		get = getResult();
 		for (int j = 0; j < a; j++) {
 			if (j + 1 != get) {
@@ -108,7 +108,7 @@ public:
 		int i = 1;
 		ifstr.open("contactlist.txt");
 		while (getline(ifstr, result)) {
-			cout << i << ") " << result << endl;
+			cout << "          " << i << ") " << result << endl;
 			i++;
 		}
 		ifstr.close();
@@ -189,6 +189,7 @@ int getIntFromArray(char arr[]) {
 int getResult() {
 	//Получаем введённые данные с строки
 	char choice[256];
+	cout << "          ";
 	cin >> choice;
 	int value;
 	if (checkLine(choice)){
@@ -196,7 +197,7 @@ int getResult() {
 	}
 	else
 	{
-		cout << "Вы не ввели число" << endl;
+		cout << "          Вы не ввели число" << endl;
 		getResult();
 	}
 	
@@ -221,7 +222,7 @@ void writeResult(int choice, Contacts& contacts) {
 		contacts.clearList();
 	}
 	else if(choice > 4){
-		cout << "Такого числа в списке нет" << endl;
+		cout << "         Такого числа в списке нет" << endl;
 	}
 }
 
