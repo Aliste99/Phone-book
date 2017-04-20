@@ -16,12 +16,11 @@ private:
 	ifstream ifstr;
 	string newContact, newNumber, result;
 	friend void writeResult(int choice, Contacts&);
+	friend int getResult();
 public:
 	Contacts() {
-		//ofstr.open("contactlist.txt", ios_base::app);
-		//ifstr.open("contactlist.txt");
 	}
-	void addContact() {		
+	void addContact() {			
 		ofstr.open("contactlist.txt", ios_base::app);
 		cout << "Введите имя контакта : ";
 		cin >> newContact;
@@ -29,15 +28,76 @@ public:
 		cout << "Введите номер : ";
 		cin >> newNumber;
 		ofstr << newNumber << "\n";
-		//ofstr << "Some text" << endl;
-		//cout << "It's work" << endl;
+		ofstr.close();
+		cout << "Контакт добавлен " << endl;
+	}
+
+	void deleteContact() {
+		int a = getSizeFirstFile();
+		int get;
+		ifstr.open("contactlist.txt");
+		clearSecondList();
+		ofstr.open("contactlistcopy.txt", ios::app);
+		string *list = new string[a];
+		int i = 0;
+		while (getline(ifstr, result)) {
+			list[i] = result;
+			cout << i + 1 << ") " << result << endl;
+			i++;
+		}
+		cout << "Выберите номер контакта, который вы хотите удалить : " << endl;
+		get = getResult();
+		for (int j = 0; j < a; j++) {
+			if (j + 1 != get) {
+				ofstr << list[j] << "\n";
+			}
+		}
+		
+		ifstr.close();
+		ofstr.close();
+		writeInFirstTxt(list, i - 1, get - 1);
+	}
+
+	void writeInFirstTxt(string *list, int size, int choice) {
+		clearList();
+		ofstr.open("contactlist.txt", ios::in | ios_base::app);
+		for (int i = 0; i <= size; i++) {
+			if (i != choice) {
+				ofstr << list[i] << "\n";
+			}
+		}
 		ofstr.close();
 	}
 
-	int getSize() {
-		int i = 1;
-		ifstr.open("contactlist.txt");
+	void clearList() {
+		ofstr.open("contactlist.txt", ios::out);
+		ofstr.close();
+	}
+
+	void clearSecondList() {
+		ofstr.open("contactlistcopy.txt", ios::out);
+		ofstr.close();
+	}
+
+	void closeOfstream() {
+		ofstr.close();
+	}
+
+	int getSizeSecondFile() {
+		int i = 0;
+		ifstr.open("contactlistcopy.txt");
 		while (getline(ifstr, result)) {
+			i++;
+		}
+		ifstr.close();
+		return i;
+	}
+
+	int getSizeFirstFile() {
+		int i = 0;
+		ifstr.open("contactlist.txt");
+		string res;
+		while (getline(ifstr, res)) {
 			i++;
 		}
 		ifstr.close();
@@ -52,29 +112,6 @@ public:
 			i++;
 		}
 		ifstr.close();
-	}
-
-	void deleteContact(int a) {
-		a = getSize();
-		ifstr.open("contactlist.txt");
-		string *list = new string[a];
-		cout << "Выберите номер контакта, который вы хотите удалить : " << endl;
-		int i = 0;
-		while (getline(ifstr, result)) {
-			list[i] = result;
-			cout << i + 1 << ") " << result << endl;
-			i++;
-		}
-		getResult();
-		ifstr.close();
-	}
-
-	void clearList() {
-
-	}
-
-	void closeOfstream() {
-		ofstr.close();
 	}
 
 };
